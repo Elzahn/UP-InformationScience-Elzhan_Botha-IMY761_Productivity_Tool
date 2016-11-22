@@ -1,0 +1,39 @@
+.todoName {
+    position: relative;
+    top: 18pt;
+    left: 18%;
+    width: 79%;
+}
+
+.todoDescription {
+    position: relative;
+    top: 12pt;
+    left: 18%;
+    width: 80%;
+    height: 50%;
+    word-wrap: break-word;
+}
+
+.dueDate {
+    position: relative;
+    top: -62pt;
+    left: 60%;
+}
+
+.completedOn {
+    position: absolute;
+    top: 1pt;
+    left: 4pt;
+}
+
+.completedDate {
+    position: absolute;
+    top: 1pt;
+    left: 66pt;
+}
+
+.fa-trash {
+    position: absolute;
+    top: 13pt;
+    left: 5pt;
+}

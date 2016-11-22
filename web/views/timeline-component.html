@@ -1,0 +1,27 @@
+<div id="days">
+    <div class="day" *ngFor="let currentDay of myDays">
+        <div class="todosContainer">
+            <div class="todosMask">
+                <div class="dayTodo" [style.background-color]="currentTodo.colour"
+                     *ngFor="let currentTodo of currentDay.todos" (mouseover)='showTimelineDetails(currentTodo)'
+                     (mouseout)="clearTimelineDetails()">
+                    <p class="timelineTodoName">{{currentTodo.name}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="dayDate">
+            {{currentDay.date}}
+        </div>
+    </div>
+</div>
+<div class='timelineDetails' [style.opacity]='displayDetails'>
+    <label>{{todoName}}</label>
+    <p class="timelineDesc">{{todoDesc}}</p>
+    <p *ngIf="todoDue != ''">Due: {{todoDue}}</p>
+    <p *ngIf="todoCompletionDate != ''">Completed: {{todoCompletionDate}}</p>
+    <p *ngIf="todoCompleted != ''">Status: {{todoCompleted}}</p>
+</div>
+<div id="Controls">
+    <button *ngIf="!takeABreak" class="btn btn-info takeABreak" (click)="takeBreak()">Take a <br/> break</button>
+    <button *ngIf="takeABreak" class="btn btn-info resumeWork" (click)="takeBreak()">Resume <br/> work</button>
+</div>

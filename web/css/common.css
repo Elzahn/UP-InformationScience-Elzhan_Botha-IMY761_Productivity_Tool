@@ -1,0 +1,95 @@
+#ProgressBarMask {
+    overflow: hidden;
+    width: 80%;
+    height: 3%;
+    margin-left: 2.5%;
+    border-radius: 12pt;
+    border: solid 1.5pt gray;
+    position: absolute;
+    top: 15%;
+}
+
+#ProgressBar {
+    width: 0%;
+    background-color: #3cb8d6;
+    border-right: solid 1.5pt gray;
+    border-radius: 7pt;
+    height: 100%;
+    position: relative;
+    top: -2%;
+    left: -1pt;
+}
+
+#Todos {
+    position: absolute;
+    overflow: auto;
+    width: 80%;
+    left: 2%;
+    top: 80pt;
+    height: 78%;
+    border: 1.5pt solid gray;
+}
+
+#Controls {
+    position: absolute;
+    width: 15%;
+    height: 83%;
+    top: 13%;
+    left: 85%;
+    padding: 10pt;
+    /*border-left: 1.5pt solid gray;*/
+}
+
+i:hover {
+    color: #3cb8d6;
+    cursor: hand;
+}
+
+.todo {
+    position: relative;
+    border: 1.5pt solid gray;
+    margin: 2pt;
+    height: 70pt;
+}
+
+.fa-square-o, .fa-check-square-o {
+    position: absolute;
+    top: 35pt;
+    left: 4pt;
+}
+
+button {
+    position: absolute;
+    top: 300pt;
+    left: -6pt;
+    width: 110%;
+    height: 40pt;
+    text-align: center;
+}
+
+.takeABreak {
+    padding: 4pt;
+    text-align: center;
+}
+
+.resumeWork {
+    padding: 4pt;
+    text-align: center;
+}
+
+.noItems {
+    width: 80%;
+    padding: 20pt;
+    text-align: center;
+    margin: 15pt;
+    text-transform: capitalize;
+    font-size: large;
+    color: black;
+}
+
+/*.fa-arrowsn{*/
+    /*position: relative;*/
+    /*top: 2pt;*/
+    /*left: -1pt;*/
+    /*cursor: move;*/
+/*}*/

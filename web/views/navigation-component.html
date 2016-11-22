@@ -1,0 +1,11 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li [routerLink]="['/todos']" (click)="toggleActive('isTodoActive')" [class.active]="isTodoActive"><a>Todos</a></li>
+            <li [routerLink]="['/completed']" (click)="toggleActive('isCompletedActive')" [class.active]="isCompletedActive"><a>Completed</a></li>
+            <li [routerLink]="['/notes']" (click)="toggleActive('isNotesActive')" [class.active]="isNotesActive"><a>Notes</a></li>
+            <li [routerLink]="['/timeline']" (click)="toggleActive('isTimelineActive')" [class.active]="isTimelineActive"><a>Timeline</a></li>
+            <li [routerLink]="['/settings']" (click)="toggleActive('isSettingsActive')" [class.active]="isSettingsActive"><a class="fa fa-cog fa-2x" aria-hidden="true"></a></li>
+        </ul>
+    </div>
+</nav>

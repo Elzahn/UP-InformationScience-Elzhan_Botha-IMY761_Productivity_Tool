@@ -1,0 +1,56 @@
+<toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+<div id="Notes" #Notes>
+    <div [dragula]='"notes-container"' [dragulaModel]='notes'>
+        <div class="todo" *ngFor="let note of notes | showNewNote">
+            <div class="editControls">
+                <i class="fa fa-trash fa-2x" (click)="deleteNote(note)" tooltip="Delete note"
+                   tooltipPlacement="right"></i>
+                <br/>
+                <i class="fa fa-check-circle-o fa-2x" (click)="acceptChanges(note, noteDescription.value)"
+                   tooltip="Accept changes" tooltipPlacement="right"></i>
+                <br/>
+                <i class="fa fa-times-circle-o fa-2x" (click)="cancelChanges(note)" tooltip="Cancel changes"
+                   tooltipPlacement="right"></i>
+            </div>
+            <textarea #noteDescription class="noteEditDescription" placeholder="Note description" maxlength="82">{{note.description}}</textarea>
+        </div>
+        <div class="todo" *ngFor="let note of notes | showNotes:activeNote">
+            <div *ngIf="!note.inEdit">
+                <div class="clickableEdit" (click)="activateEditMode(note)" tooltip="Click to edit">
+                    <p class="noteDescription">{{note.description}}</p>
+                </div>
+                <i class="fa fa-2x" [class.fa-square-o]="!note.completed" [class.fa-check-square-o]="note.completed"
+                   (click)="toggleTodoCompletionState(note)" tooltip="Complete note" tooltipPlacement="right"></i>
+                <span class="handle" tooltip="Move me">+</span>
+            </div>
+            <div *ngIf="note.inEdit">
+                <i class="fa fa-trash fa-2x" (click)="deleteNote(note)" tooltip="Delete note"></i>
+                <br/>
+                <i class="fa fa-check-circle-o fa-2x" (click)="acceptChanges(note, noteDescription.value)"
+                   tooltip="Accept changes"></i>
+                <br/>
+                <i class="fa fa-times-circle-o fa-2x" (click)="cancelChanges(note)" tooltip="Cancel changes"></i>
+                <textarea #noteDescription class="noteEditDescription" maxlength="82">{{note.description}}</textarea>
+            </div>
+        </div>
+        <div class="noItems" *ngIf="!notes || notes.length == 0">
+            You have no active notes
+        </div>
+    </div>
+    <div id="completedHeading">Completed Notes</div>
+    <div class="todo" *ngFor="let note of completedNotes" (click)="notifyUserCantEdit()">
+        <p class="noteDescription">{{note.description}}</p>
+        <i class="fa fa-trash fa-2x completedDelete" (click)="deleteNote(note)" tooltip="Delete note"
+           tooltipPlacement="right"></i>
+        <i class="fa fa-2x" [class.fa-square-o]="!note.completed" [class.fa-check-square-o]="note.completed"
+           (click)="toggleTodoCompletionState(note)" tooltip="Resume note" tooltipPlacement="right"></i>
+    </div>
+    <div class="noItems" *ngIf="!completedNotes || completedNotes.length == 0">
+        You have no completed notes
+    </div>
+</div>
+<div id="Controls">
+    <i class="fa fa-plus-circle fa-2x" (click)="addNote()" tooltip="Add note"></i>
+    <button *ngIf="!takeABreak" class="btn btn-info takeABreak" (click)="takeBreak()">Take a <br/> break</button>
+    <button *ngIf="takeABreak" class="btn btn-info resumeWork" (click)="takeBreak()">Resume <br/> work</button>
+</div>

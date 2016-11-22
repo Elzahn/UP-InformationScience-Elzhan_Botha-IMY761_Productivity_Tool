@@ -1,0 +1,104 @@
+.todoEdit {
+    border: 1.5pt solid gray;
+    margin: 2pt;
+    height: 100pt;
+}
+
+.greyOut {
+    color: lightgray;
+}
+
+.fa-clock-o {
+    position: relative;
+    top: 10pt;
+    left: 1.5%;
+}
+
+.todoNameEdit {
+    position: relative;
+    top: 10pt;
+    left: 9.5%;
+    width: 80%;
+}
+
+.todoName {
+    position: relative;
+    top: 16pt;
+    left: 10%;
+    width: 80%;
+}
+
+.dueDateLabelEdit {
+    position: relative;
+    width: 10%;
+    left: -45%;
+    top: -62pt;
+}
+
+.todoDescriptionEdit {
+    position: relative;
+    top: 14pt;
+    left: 21pt;
+    width: 80%;
+    height: 40%;
+    resize: none;
+}
+
+.todoDescription {
+    position: relative;
+    top: 10pt;
+    left: 10%;
+    width: 159pt;
+    height: 33pt;
+    word-wrap: break-word;
+}
+
+.dueDateEdit {
+    position: relative;
+    top: -82pt;
+    left: 48%;
+    width: 50%;
+}
+
+.dueDate {
+    position: relative;
+    top: -65pt;
+    left: 35%;
+}
+
+.editControls {
+    width: 30%;
+    left: 5%;
+    top: 3%;
+    position: relative;
+}
+
+.clickableEdit {
+    position: relative;
+    cursor: hand;
+    margin: 2pt;
+    height: 70pt;
+    top: -20pt;
+    width: 85%;
+    left: 25pt;
+}
+
+.handle {
+    cursor: move;
+    position: absolute;
+    top: 2pt;
+    left: 195pt;
+    width: 5%;
+    height: 20%;
+    background-color: #D9EDF7;
+    padding-left: 3pt;
+    padding-bottom: 15pt;
+    padding-right: 10pt;
+    border-radius: 4pt;
+}
+
+.filteredBy {
+    position: relative;
+    top: -30pt;
+    left: 7pt;
+}

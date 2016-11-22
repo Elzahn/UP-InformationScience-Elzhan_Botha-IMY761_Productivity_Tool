@@ -1,0 +1,56 @@
+<p class="filteredBy"><strong>{{getFilteredBy()}}</strong></p>
+<div id="ProgressBarMask">
+    <div id="ProgressBar" [style.width]="progress"></div>
+</div>
+<br/>
+<toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+<div id="Todos" #Todos [dragula]='"todo-container"' [dragulaModel]='todos'>
+    <div class="todoEdit" *ngFor="let todo of todos | showActiveTodos:notSavedArg">
+        <div class="editControls">
+            <i class="fa fa-trash fa-2x" (click)="deleteTodo(todo)" tooltip="Delete todo"></i>
+            <i class="fa fa-check-circle-o fa-2x"
+               (click)="acceptChanges(todo, todoName.value, todoDesc.value, todoDueDate.value)" tooltip="Accept changes"></i>
+            <i class="fa fa-times-circle-o fa-2x" (click)="cancelChanges(todo)" tooltip="Cancel changes"></i>
+        </div>
+        <input #todoName tabindex="2" class="todoNameEdit" value="{{todo.name}}" maxlength="28" placeholder="Todo name"/>
+        <textarea #todoDesc tabindex="3" class="todoDescriptionEdit" maxlength="51" placeholder="Todo description">{{todo.description}}</textarea>
+        <label class="dueDateLabelEdit">Due:</label>
+        <input #todoDueDate autofocus tabindex="1" class="dueDateEdit" type="date"/>
+    </div>
+    <div [class.todo]="!todo.inEdit" [class.todoEdit]="todo.inEdit" *ngFor="let todo of todos | showActiveTodos:savedArg | orderBy | showInPeriod">
+        <div *ngIf="!todo.inEdit">
+            <i class="fa fa-clock-o fa-2x" (click)="workingOnIt(todo)" [class.greyOut]="!todo.workingOnTodo" tooltip="Work on todo" tooltipPlacement="right"></i>
+            <div class="clickableEdit" (click)="activateEditMode(todo)" tooltip="Click to edit">
+                <p class="todoName">{{todo.name}}</p>
+                <p class="todoDescription">{{todo.description}}</p>
+                <label class="dueDate">Due:</label>
+                <label class="dueDate">{{todo.dueDate}}</label>
+            </div>
+            <i class="fa fa-2x fa-square-o" (click)="toggleTodoCompletionState(todo)" tooltip="Complete todo" tooltipPlacement="right"></i>
+            <span class="handle" tooltip="Move me">+</span>
+        </div>
+       <div *ngIf="todo.inEdit">
+            <div class="editControls">
+                <i class="fa fa-trash fa-2x" (click)="deleteTodo(todo)" tooltip="Delete todo"></i>
+                <i class="fa fa-check-circle-o fa-2x"
+                   (click)="acceptChanges(todo, todoName.value, todoDesc.value, todoDueDate.value)" tooltip="Accept changes"></i>
+                <i class="fa fa-times-circle-o fa-2x" (click)="cancelChanges(todo)" tooltip="Cancel changes"></i>
+            </div>
+            <input #todoName class="todoNameEdit" value="{{todo.name}}" maxlength="28"/>
+            <textarea #todoDesc class="todoDescriptionEdit" maxlength="51">{{todo.description}}</textarea>
+            <label class="dueDateLabelEdit">Due:</label>
+            <input #todoDueDate class="dueDateEdit" type="date" value="{{todo.datePickerDue}}"/>
+        </div>
+    </div>
+    <div class="noItems" *ngIf="!todos || todos.length == 0">
+        You have no active todos
+    </div>
+    <div class="noItems" *ngIf="getFilteredTodosEmpty() === true">
+        {{getFilteredMessage()}}
+    </div>
+</div>
+<div id="Controls">
+    <i class="fa fa-plus-circle fa-2x" (click)="addTodo()" tooltip="Add todo"></i>
+    <button *ngIf="!takeABreak" class="btn btn-info takeABreak" (click)="takeBreak()">Take a <br/> break</button>
+    <button *ngIf="takeABreak" class="btn btn-info resumeWork" (click)="takeBreak()">Resume <br/> work</button>
+</div>

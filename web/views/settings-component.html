@@ -1,0 +1,75 @@
+<toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+<div id="settingsHeading">Settings</div>
+<div id="Settings">
+    <br/>
+    <p class="SettingsCollectionHeading">Notifications:</p>
+    <div class="setting">
+        <input #breakNotificationsInput id="showBreakNotifications" type="checkbox" [checked]="amIcheckedNotifyCheckBox('breakNotifications', breakNotificationsInput.checked)" (change)="saveCheckedNotifyChange('breakNotifications')" />
+        <label for="showBreakNotifications">Show break notifications</label>
+    </div>
+    <div class="setting">
+        <input id="todoRemindMe" type="checkbox" [checked]="amIcheckedNotifyCheckBox('todoReminders')" (change)="saveCheckedNotifyChange('todoReminders', todoRemindMeDaysInput)" />
+        <lable for="todoReminderDays">
+            Remind me of todos
+            <input #todoReminderDays [disabled]="!amIcheckedNotifyCheckBox('todoReminders')" id="todoReminderDays" type="number" [value]="getReminderDayValue()" min="0" max="99" required (blur)="todoReminderDays.validity.valid||(todoReminderDays.value='0');" (change)="saveCheckedNotifyChange('todoReminderDays', todoReminderDays.value)" />
+            days in advance
+        </lable>
+    </div>
+
+    <br/>
+    <br/>
+    <p class="SettingsCollectionHeading">View todos by:</p>
+    <div class="setting">
+        <input id="todoByDueDate" name="sortTodoBy" type="radio" [checked]="amIcheckedViewByRadio('dueDate')" (change)="saveCheckedViewByChange('dueDate')" />
+        <label for="todoByDueDate">View todos by due date</label>
+    </div>
+    <div class="setting">
+        <input id="todoByCustom" name="sortTodoBy" type="radio" [checked]="amIcheckedViewByRadio('custom')" (change)="saveCheckedViewByChange('custom')" />
+        <label for="todoByCustom">View todos by custom sorting</label>
+    </div>
+
+    <br/>
+    <br/>
+    <p class="SettingsCollectionHeading">View todos for period:</p>
+    <div class="setting">
+        <input id="todosForToday" name="viewTodoPeriod" type="radio" [checked]="amIcheckedViewPeriodRadio('today')" (change)="saveCheckedViewPeriodChange('today')" />
+        <label for="todosForToday">View todos for today</label>
+    </div>
+    <div class="setting">
+        <input id="todosForWeek" name="viewTodoPeriod" type="radio" [checked]="amIcheckedViewPeriodRadio('week')" (change)="saveCheckedViewPeriodChange('week')" />
+        <label for="todosForWeek">View todos for this week</label>
+    </div>
+    <div class="setting">
+        <input id="todosForMonth" name="viewTodoPeriod" type="radio" [checked]="amIcheckedViewPeriodRadio('month')" (change)="saveCheckedViewPeriodChange('month')" />
+        <label for="todosForMonth">View todos for this month</label>
+    </div>
+    <div class="setting">
+        <input id="allTodos" name="viewTodoPeriod" type="radio" [checked]="amIcheckedViewPeriodRadio('all')" (change)="saveCheckedViewPeriodChange('all')" />
+        <label for="allTodos">View all todos </label>
+    </div>
+    <div class="setting">
+        <input id="todoCustomRange" name="viewTodoPeriod" type="radio" [checked]="amIcheckedViewPeriodRadio('custom')" (change)="saveCheckedViewPeriodChange('custom', todoFromDate.value, todoToDate.value)" />
+        <label for="todoCustomRange">View todos for custom range between:</label>
+        <input #todoFromDate [disabled]="!amIcheckedViewPeriodRadio('custom')" type="date" [value]="getFromDate()" required (blur)="todoFromDate.validity.valid||(todoFromDate.value=getFromDate());" (change)="saveFromDate(todoFromDate.value)"/>
+        <label>and</label>
+        <input #todoToDate [disabled]="!amIcheckedViewPeriodRadio('custom')" type="date" [value]="getToDate()" required (blur)="todoToDate.validity.valid||(todoToDate.value=getToDate());" (change)="saveToDate(todoToDate.value)"/>
+    </div>
+    <br/>
+    <br/>
+    <p class="SettingsCollectionHeading">Set work units:</p>
+    <div class="setting">
+        <lable for="workAmount">
+            Work for
+            <input #workAmount id="workAmount" type="number" [value]="getWorkAmount()" min="1" max="99" required (blur)="workAmount.validity.valid||(workAmount.value='1');" (change)="saveWorkAmount(workAmount.value)" />
+            minutes
+        </lable>
+    </div>
+    <div class="setting">
+        <lable for="breakAmount">
+            Take a
+            <input #breakAmount id="breakAmount" type="number" [value]="getBreakAmount()" min="1" max="99" required (blur)="breakAmount.validity.valid||(breakAmount.value='1');" (change)="saveBreakAmount(breakAmount.value)" />
+            minute break
+        </lable>
+    </div>
+    <br/>
+</div>

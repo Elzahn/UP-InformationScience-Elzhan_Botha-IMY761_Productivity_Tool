@@ -1,0 +1,14 @@
+div {
+    border: 1.5pt solid gray;
+    margin: 2pt;
+    height: 70pt;
+}
+
+.greyOut {
+    color: lightgray;
+}
+
+i:hover {
+    color: #3cb8d6;
+    cursor: hand;
+}

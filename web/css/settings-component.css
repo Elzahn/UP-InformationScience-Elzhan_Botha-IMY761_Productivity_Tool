@@ -1,0 +1,42 @@
+#Settings {
+    position: absolute;
+    overflow: auto;
+    width: 95%;
+    left: 2%;
+    top: 97pt;
+    height: 74%;
+    border: 1.5pt solid gray;
+}
+
+#settingsHeading {
+    position: absolute;
+    overflow: auto;
+    width: 95%;
+    left: 1%;
+    top: 53pt;
+    padding: 6pt;
+    margin: 3pt;
+    border: 1.5pt solid gray;
+    text-align: center;
+}
+
+.setting {
+    position: relative;
+    left: 3%;
+    top: 3%;
+    width: 96%;
+}
+
+input[type=number] {
+    width: 12%;
+    margin-left: 5pt;
+    margin-right: 5pt;
+}
+
+input[type=date] {
+    width: 100pt;
+}
+
+.SettingsCollectionHeading {
+    padding-left: 8pt;
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Todo-Productivity-Tool",
+  "version": "1.0.0",
+  "description": "A productivity tool designed to test the usability of other existing productivity ideas in one application",
+  "main": "main.js",
+  "scripts": {
+    "build": "webpack --progress --profile --colors --display-error-details",
+    "start": "electron .",
+    "postinstall": "typings install"
+  },
+  "author": "Elzahn Botha",
+  "devDependencies": {
+    "electron-packager": "^7.3.0",
+    "electron-prebuilt": "^0.37.8",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "ts-loader": "^0.7.2",
+    "typescript": "^1.7.3",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "dependencies": {
+    "@angular/common": "2.0.0-rc.4",
+    "@angular/compiler": "2.0.0-rc.4",
+    "@angular/core": "2.0.0-rc.4",
+    "@angular/platform-browser": "2.0.0-rc.4",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.4",
+    "@angular/router": "3.0.0-beta.1",
+    "angular2-toaster": "^0.3.6-rc.4",
+    "core-js": "^2.4.0",
+    "dragula": "^3.7.1",
+    "electron-json-storage": "^2.0.0",
+    "growl": "^1.9.2",
+    "jquery": "^3.1.0",
+    "ng2-dragula": "^1.1.10",
+    "ng2-tooltip": "0.0.2",
+    "node-notifier": "^4.6.0",
+    "object-encrypter": "^0.1.2",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.6",
+    "typings": "^1.0.4",
+    "webpack-merge": "^0.14.0",
+    "zone.js": "^0.6.12"
+  }
+}

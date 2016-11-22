@@ -1,0 +1,23 @@
+<div id="ProgressBarMask">
+    <div id="ProgressBar" [style.width]="progress"></div>
+</div>
+<br/>
+<div id="Todos">
+    <div class="todo" *ngFor="let todo of completedTodos | showCompletedTodos">
+        <p class="todoName">{{todo.name}}</p>
+        <p class="todoDescription">{{todo.description}}</p>
+        <label class="dueDate">Due:</label>
+        <label class="dueDate">{{todo.dueDate}}</label>
+        <i class="fa fa-2x fa-check-square-o" (click)="toggleTodoCompletionState(todo)" tooltip="Resume todo" tooltipPlacement="right"></i>
+        <label class="completedOn">Completed:</label>
+        <label class="completedDate">{{todo.completedOn}}</label>
+        <i class="fa fa-trash fa-2x" (click)="deleteTodo(todo)" tooltip="Delete todo" tooltipPlacement="right"></i>
+    </div>
+    <div class="noItems" *ngIf="!completedTodos || completedTodos.length == 0">
+        You have no completed todos
+    </div>
+</div>
+<div id="Controls">
+    <button *ngIf="!takeABreak" class="btn btn-info takeABreak" (click)="takeBreak()">Take a <br/> break</button>
+    <button *ngIf="takeABreak" class="btn btn-info resumeWork" (click)="takeBreak()">Resume <br/> work</button>
+</div>

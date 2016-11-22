@@ -1,0 +1,86 @@
+#days {
+    position: absolute;
+    overflow: auto;
+    width: 80%;
+    left: 2%;
+    top: 57pt;
+    height: 84%;
+    border: 1.5pt solid gray;
+}
+
+#daysMask {
+    overflow: auto;
+}
+
+.todosContainer {
+    display: table-cell;
+    vertical-align: bottom;
+    height: 280pt;
+    position: absolute;
+    bottom: 1pt;
+}
+
+.todosMask {
+    max-height: 280pt;
+    width: 50pt;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    bottom: -1pt;
+}
+
+.day {
+    position: relative;
+    display: table-cell;
+    top: 270pt;
+    left: 4pt;
+    width: 55pt;
+    height: 8%;
+    border-bottom: 1.5pt solid black;
+    border-left: 1.5pt solid black;
+    border-right: 1.5pt solid black;
+}
+
+.dayDate {
+    position: relative;
+    top: 25pt;
+    font-size: smaller;
+    padding: 3pt;
+}
+
+.dayTodo {
+    position: relative;
+    height: 40pt;
+    width: 50pt;
+    border: 1px solid black;
+}
+
+.timelineDetails {
+    position: absolute;
+    background-color: rgba(33, 136, 122, 0.5);
+    color: #ffffff;
+    padding: 13pt;
+    border: 1px solid black;
+    border-radius: 15%;
+    opacity: 0;
+    top: 85pt;
+    left: 19pt;
+    width: 70%;
+    max-height: 35%;
+    pointer-events: none;
+    text-overflow: ellipsis;
+}
+
+.timelineTodoName {
+    width: 47pt;
+    height: 32pt;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.timelineDesc {
+    width: 180pt;
+    overflow: hidden;
+    word-wrap: break-word;
+    max-height: 30pt;
+}

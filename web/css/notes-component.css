@@ -1,0 +1,68 @@
+#Notes {
+    position: absolute;
+    overflow: auto;
+    width: 80%;
+    left: 2%;
+    top: 57pt;
+    height: 84%;
+    border: 1.5pt solid gray;
+}
+
+.noteEditDescription {
+    position: absolute;
+    top: 10pt;
+    left: 30pt;
+    width: 80%;
+    height: 80%;
+    resize: none;
+}
+
+.clickableEdit {
+    cursor: hand;
+}
+
+.noteDescription {
+    position: absolute;
+    left: 30pt;
+    top: 18pt;
+    height: 70%;
+    width: 80%;
+    word-wrap: break-word;
+}
+
+.editControls {
+    position: relative;
+    width: 10%;
+    left: 2.5%;
+    top: 3%;
+}
+
+#completedHeading {
+    background-color: aliceblue;
+    padding: 6pt;
+    margin: 3pt;
+    border: 1.5pt ridge gray;
+    text-align: center;
+    left: -0.5pt;
+    position: relative;
+}
+
+.handle {
+    position: absolute;
+    top: 2pt;
+    left: 195pt;
+    cursor: move;
+    width: 5%;
+    height: 20%;
+    background-color: #D9EDF7;
+    padding-left: 3pt;
+    padding-bottom: 15pt;
+    padding-right: 10pt;
+    border-radius: 4pt;
+}
+
+.completedDelete {
+    position: relative;
+    left: 4.5pt;
+    top: 8pt;
+}
