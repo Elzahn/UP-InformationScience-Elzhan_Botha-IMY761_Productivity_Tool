@@ -4,7 +4,7 @@ University of Pretoria Honours IMY 761 Productivity tool
 This is a productivity tool created for my honours project for IMY 76
 .
 The program is in the bundled folder, to use just download the folder
-corresponding to your computer architecture and execute the exe file found
+corresponding to your computer architecture, extract the zip file and execute the exe file found
 inside the folder.
 
 To recompile the code into an application, download the code, run npm install
